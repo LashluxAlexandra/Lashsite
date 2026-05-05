@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lash Lux | Alexandra Gheorghiță</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --pale-pink: #fdf2f5;
+      --gold: #d4af37;
+      --soft-gold: #f4e4bc;
+      --dark-pink: #b56c89;
+      --text-color: #3d2b32;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background: var(--pale-pink); color: var(--text-color); line-height: 1.6; }
+
+    /* HEADER */
+    header {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .profile-container { position: relative; margin-bottom: 20px; }
+    .profile-photo {
+      width: 180px; height: 180px;
+      border-radius: 50%; border: 5px solid white;
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+      object-fit: cover; background: #eee;
+    }
+    .upload-label {
+      position: absolute; bottom: 5px; right: 5px;
+      background: var(--gold); color: white; padding: 10px;
+      border-radius: 50%; cursor: pointer; border: 2px solid white; font-size: 14px;
+    }
+
+    .hero-box {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 25px; border-radius: 25px; border: 1px solid var(--gold);
+    }
+    .hero-box h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); }
+
+    /* BUTOANE CONTACT */
+    .contact-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+    .social-btn {
+      text-decoration: none; padding: 10px 20px; border-radius: 50px;
+      font-size: 14px; font-weight: 600; color: white; transition: 0.3s;
+    }
+    .insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+    .face { background: #1877F2; }
+    .phone { background: #25D366; }
+
+    /* SECTIUNI */
+    section { max-width: 900px; margin: auto; padding: 40px 20px; }
+    h2 { font-family: 'Playfair Display', serif; color: var(--dark-pink); text-align: center; margin-bottom: 25px; }
+    .card { background: white; padding: 25px; border-radius: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.03); border: 1px solid #f0dee4; }
+
+    /* PRETURI */
+    .price-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #f9ebf0; }
+    .price-item b { color: var(--gold); }
+
+    /* GALERIE LUCRARI */
+    .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .work-photo { 
+      aspect-ratio: 1/1; background: #fff; border-radius: 15px; 
+      border: 1px dashed var(--soft-gold); display: flex; align-items: center; 
+      justify-content: center; font-size: 12px; color: #999;
+    }
+
+    /* RECENZII */
+    input, textarea { width: 100%; padding: 12px; border-radius: 12px; border: 1px solid #eee; margin-bottom: 10px; background: #fafafa; }
+    .btn-review { background: var(--dark-pink); color: white; border: none; padding: 12px; border-radius: 12px; width: 100%; cursor: pointer; font-weight: 600; }
+    .review-item { background: #fffafb; padding: 15px; border-radius: 15px; margin-top: 10px; border-left: 4px solid var(--gold); }
+
+    footer { background: white; text-align: center; padding: 40px 20px; border-top: 1px solid #f4e4bc; }
+    #file-input { display: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="profile-container">
+    <img id="output" src="https://via.placeholder.com/200?text=Alege+Poza+Ta" class="profile-photo">
+    <label for="file-input" class="upload-label">📸</label>
+    <input type="file" id="file-input" accept="image/*" onchange="loadFile(event)">
+  </div>
+  
+  <div class="hero-box">
+    <h1>Lash Lux</h1>
+    <p>Alexandra Gheorghiță</p>
+    <div class="contact-buttons">
+      <a href="tel:0720842171" class="social-btn phone">Sună Acum</a>
+      <a href="https://instagram.com/CONTUL_TAU" target="_blank" class="social-btn insta">Instagram</a>
+      <a href="https://facebook.com/CONTUL_TAU" target="_blank" class="social-btn face">Facebook</a>
+    </div>
+  </div>
+</header>
+
+<section id="servicii">
+  <h2>Servicii & Tarife</h2>
+  <div class="card">
+    <div class="price-item"><span>Soft Volume</span> <b>210 RON</b></div>
+    <div class="price-item"><span>Russian Volume</span> <b>230 RON</b></div>
+    <div class="price-item"><span>Mega Volume</span> <b>250 RON</b></div>
+    <div class="price-item"><span>Curburi M/L</span> <b>+30 RON</b></div>
+    <div class="price-item"><span>Demontare (alt salon)</span> <b>30 RON</b></div>
+    <p style="text-align:center; margin-top:15px; color:var(--dark-pink); font-weight:600;">✨ Accesorii (pietricele/fluturi): GRATIS</p>
+  </div>
+</section>
+
+<section id="lucrari">
+  <h2>Portofoliu Lucrări</h2>
+  <div class="gallery">
+    <div class="work-photo">Poza Lucrare 1</div>
+    <div class="work-photo">Poza Lucrare 2</div>
+    <div class="work-photo">Poza Lucrare 3</div>
+    <div class="work-photo">Poza Lucrare 4</div>
+  </div>
+</section>
+
+<section id="locatie">
+  <h2>Unde mă găsești?</h2>
+  <div class="card" style="text-align: center;">
+    <p>📍 <strong>Tomis Nord, zona Cireșica</strong></p>
+    <p>Constanța</p>
+    <p style="font-size: 13px; color: #777; margin-top: 10px;">Programările se fac cu cel puțin 2-3 zile înainte.</p>
+  </div>
+</section>
+
+<section id="recenzii">
+  <h2>Recenzii Cliente</h2>
+  <div class="card">
+    <input type="text" id="name" placeholder="Numele tău">
+    <textarea id="text" rows="3" placeholder="Experiența ta..."></textarea>
+    <button class="btn-review" onclick="addRev()">Postează</button>
+    <div id="rev-list"></div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Lash Lux Alexandra Gheorghiță</strong></p>
+  <p>0720 842 171</p>
+  <p style="font-size: 11px; margin-top: 20px; opacity: 0.6;">© 2024 Lash Lux Constanța</p>
+</footer>
+
+<script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  };
+
+  function addRev() {
+    let n = document.getElementById('name').value;
+    let t = document.getElementById('text').value;
+    if(n && t) {
+      let d = document.createElement('div');
+      d.className = 'review-item';
+      d.innerHTML = `<b>${n}</b><p>${t}</p>`;
+      document.getElementById('rev-list').prepend(d);
+      document.getElementById('name').value = '';
+      document.getElementById('text').value = '';
+    }
+  }
+</script>
+
+</body>
+</html>
